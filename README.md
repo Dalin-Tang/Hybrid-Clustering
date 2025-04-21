@@ -74,7 +74,7 @@ This will print an output ,you can compare it with file (`output.txt`).
 
 ## Results
 
-After running the program, the **`output.txt`** file will contain the following results:
+After running the program, the output will contain the following results:
 - The relative speed thresholds for classifying traffic states.
 - The statistical metrics of relative speed.
 - The correlation coefficients between the thresholds of adjacent road segments.
@@ -83,6 +83,4 @@ After running the program, the **`output.txt`** file will contain the following 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
 
-Feel free to adjust the content further if needed, especially for dependencies or specific testing instructions.
