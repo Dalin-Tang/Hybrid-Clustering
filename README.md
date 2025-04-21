@@ -46,6 +46,8 @@ This project consists of the following files:
   - `sklearn`
   - `matplotlib`
   - `scipy`
+  - `jenkspy`
+  - `os`
 
 Install the necessary dependencies with:
 
