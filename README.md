@@ -60,7 +60,7 @@ pip install -r requirements.txt
    ```bash
    python indx_wf_relapartion_DBSACN_NaturalBreaks.py
    ```
-3. Check the results in the `output.txt` file for the traffic state classification and analysis.
+3. The results will print the traffic state classification and analysis.
 
 ### Testing
 
@@ -70,7 +70,7 @@ To test the program with a sample dataset, run the `test.py` file:
 python test.py
 ```
 
-This will generate an output file (`output.txt`) containing the results of the test.
+This will print an output ,you can compare it with file (`output.txt`).
 
 ## Results
 
