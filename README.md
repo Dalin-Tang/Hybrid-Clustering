@@ -81,8 +81,6 @@ After running the program, the output will contain the following results:
 - The statistical metrics of relative speed.
 - The correlation coefficients between the thresholds of adjacent road segments.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
