@@ -1,45 +1,59 @@
 # Hybrid-Clustering
 
-# DBSCAN-Natural Break Hybrid Clustering for Traffic State Classification
+## DBSCAN-Natural Break Hybrid Clustering for Traffic State Classification
 
-## Project Overview
+### Project Overview
 
-This project implements a hybrid clustering approach combining **DBSCAN** (Density-Based Spatial Clustering of Applications with Noise) and **Natural Breaks** to classify traffic states. The clustering algorithm processes traffic speed data to determine the relative speed thresholds, speed statistics, and the correlation coefficients of adjacent road segment thresholds. The methodology aims to enhance the understanding of traffic flow and congestion patterns.
+This project implements a hybrid clustering approach combining **DBSCAN** (Density-Based Spatial Clustering of Applications with Noise) and **Natural Breaks (Jenks)** to classify traffic states. The algorithm is designed to extract meaningful traffic patterns from speed data across road segments by determining relative speed thresholds for various traffic states and analyzing the inter-segment relationships in traffic behavior.
+
+The main functions include:
+- Determining relative speed thresholds for traffic state classification using hybrid clustering.
+- Computing statistical metrics (mean, standard deviation, etc.) of relative speeds in each cluster.
+- Analyzing the correlation of traffic states between adjacent road segments, including:
+  - Linear regression slope and intercept.
+  - Pearson correlation coefficient (R).
+  - p-value of statistical significance.
+  - Standard error of regression coefficients.
+
+---
 
 ### Files in This Project
 
-This project consists of the following files:
-
 1. **`indx_wf_relapartion_DBSACN_NaturalBreaks.py`**  
-   This is the main program file that integrates the fusion clustering algorithm. It outputs:
-   - The relative speed thresholds for traffic state classification.
-   - Statistical metrics of relative speed.
-   - Correlation coefficients between adjacent thresholds for all road segment samples.
+   The main script that implements the hybrid clustering and correlation analysis. It outputs:
+   - Traffic state classifications based on relative speed thresholds.
+   - Statistical summaries for each traffic state.
+   - Correlation metrics between adjacent segments, including regression parameters and statistical significance.
 
 2. **`test.py`**  
-   This file serves as the testing script for the project. It runs the clustering process and outputs the classification results.
+   A test script for verifying the clustering and correlation process on sample data. It prints the classification results and correlation coefficients.
 
 3. **`output.txt`**  
-   This file contains the results of the tests run on the dataset, including the traffic state classifications, relative speed thresholds, and the correlation between adjacent road segment thresholds.
+   Contains the output results:
+   - Relative speed thresholds by traffic state.
+   - Traffic state classification of sample segments.
+   - Correlation analysis results between adjacent road segment thresholds.
 
 4. **`raw_data_sample`**  
-   A sample of raw traffic data. The columns are:
+   Sample input data in raw form, with the following columns:
    - `cityname`: Name of the city.
    - `ds`: Date.
    - `time_interval`: Time interval of data collection.
    - `seg_id`: Road segment ID.
-   - `speed`: Recorded speed of the segment.
+   - `speed`: Measured speed of the segment.
 
 5. **`bj_test`**  
-   This is a processed version of the raw data, which can be directly input into the program. The columns are:
+   A processed data file ready for direct input into the program, with:
    - `seg_id`: Road segment ID.
-   - `speed`: Recorded speed of the road segment.
+   - `speed`: Speed observation.
 
-## Usage
+---
 
-### Requirements
+### Usage
 
-- Python 3.9
+#### Requirements
+
+- Python 3.9+
 - Required libraries:
   - `numpy`
   - `pandas`
@@ -49,38 +63,39 @@ This project consists of the following files:
   - `jenkspy`
   - `os`
 
-Install the necessary dependencies with:
+Install all dependencies with:
 
 ```bash
 pip install -r requirements.txt
-```
 
-### Running the Program
+Running the Program
+	1.	Prepare your dataset in the required format (see bj_test).
+	2.	Run the main clustering and correlation analysis script:
 
-1. Place your data in the correct format (see `bj_test` for an example).
-2. Run the clustering algorithm using the `indx_wf_relapartion_DBSACN_NaturalBreaks.py` file.
-   ```bash
-   python indx_wf_relapartion_DBSACN_NaturalBreaks.py
-   ```
-3. The results will print the traffic state classification and analysis.
+python indx_wf_relapartion_DBSACN_NaturalBreaks.py
 
-### Testing
+	3.	The results will include traffic state classification and correlation analysis between adjacent segments.
 
-To test the program with a sample dataset, run the `test.py` file:
+Testing
 
-```bash
+To test with provided sample data, use:
+
 python test.py
-```
 
-This will print an output ,you can compare it with file (`output.txt`).
+The output can be compared with the contents of output.txt.
 
-## Results
+⸻
 
-After running the program, the output will contain the following results:
-- The relative speed thresholds for classifying traffic states.
-- The statistical metrics of relative speed.
-- The correlation coefficients between the thresholds of adjacent road segments.
+Results
 
+The program outputs the following:
+	•	Traffic state classifications for each road segment.
+	•	Relative speed thresholds for each traffic state.
+	•	Statistical summaries of relative speeds within each state.
+	•	Correlation analysis results for adjacent segments, including:
+	•	Regression slope and intercept.
+	•	Correlation coefficient (R).
+	•	p-value from hypothesis testing.
+	•	Standard error of regression coefficients.
 
-
-
+These results provide insight into not only the classification of traffic conditions but also the spatial relationships and dependencies between neighboring road segments.
